@@ -1,0 +1,198 @@
+#, fuzz/home/alex/projects/smsphp/publicy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Woocommerce SMS/WhatsApp Notifications\n"
+"POT-Creation-Date: 2018-11-19 15:09+0530\n"
+"PO-Revision-Date: 2018-11-19 15:08+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: xc-woo-twilio.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-xc-woo-twilio-admin.php:127
+#: admin/class-xc-woo-twilio-admin.php:180
+msgid "Twilio Settings"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:128
+msgid "Messages Configuration"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:143
+msgid "SMS/WhatsApp Notifications"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:186
+msgid "Twilio Account Sid"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:188
+msgid "The account Sid for your account in Twilio"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:192
+msgid "Authentication Token"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:194
+msgid "The authentication Token for your account in Twilio"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:199
+msgid "WhatsApp Sender ID"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:201
+msgid "The WhatsApp Sender ID of your account in Twilio"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:206
+msgid "SMS Sender ID"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:208
+msgid "The SMS Sender ID of your account in Twilio"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:213
+msgid "Admin Mobile Number"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:215
+msgid "Admin mobile number to get order notifications"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:220
+msgid "Default notification type"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:235
+#: admin/class-xc-woo-twilio-admin.php:241
+msgid "New Order Notification"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:237
+msgid "This notification will send to admin when a new order was placed"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:243
+msgid "Enable New Order Notification"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:247
+msgid "Message"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:249
+msgid ""
+"Available placeholders: {billing_first_name} , {billing_last_name},  "
+"{order_number} , {order_total}, {site_title}"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:269
+msgid "Send Notification when Order is"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:271
+msgid "This notification will send when a order status is changed to"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:275
+msgid "Send notification to admin"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:277
+msgid "Send notification to admin when ouder is"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:281
+msgid "Admin message"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:283
+#: admin/class-xc-woo-twilio-admin.php:297
+msgid ""
+"Available placeholders: {order_status}, {billing_first_name} , "
+"{billing_last_name},  {order_number} , {order_total}, {site_title}"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:289
+#: admin/class-xc-woo-twilio-admin.php:320
+msgid "Send notification to customer"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:291
+msgid "Send notification to customer when ouder is"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:295
+#: admin/class-xc-woo-twilio-admin.php:326
+msgid "Customer message"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:314
+msgid "Send Notification when a new note is added to order"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:316
+msgid "This notification will send when a new note is added to order"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:322
+msgid "Send notification to customer when a new note is added to order"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:328
+msgid ""
+"Available placeholders: {order_note}, {billing_first_name} , "
+"{billing_last_name},  {order_number} , {order_total}, {site_title}"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:348
+msgid "settings"
+msgstr ""
+
+#: admin/class-xc-woo-twilio-admin.php:348
+msgid "Settings"
+msgstr ""
+
+#: xc-woo-twilio.php:110
+msgid ""
+"Woocommerce SMS/WhatsApp Notifications requires the WooCommerce plugin. "
+"Please install or activate Woocommerce before!"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Woocommerce SMS/WhatsApp Notifications"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wp.xperts.club/woonotifications/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"By using Woocommerce SMS/WhatsApp Notifications you can start sending custom "
+"SMS/WhatsApp messages to your customers right away, informing them of any "
+"change in the status of the order they placed. Also you can receive an SMS/"
+"WhatsApp message when the shop get a new order."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "XpertsClub"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://xperts.club/"
+msgstr ""
