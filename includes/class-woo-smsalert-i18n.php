@@ -6,11 +6,11 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://xperts.club/
+ * @link       https://smsalert.mobi/
  * @since      1.0.0
  *
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/includes
+ * @package    WooSmsALlert
+ * @subpackage WooSmsALlert/includes
  */
 
 /**
@@ -20,9 +20,9 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/includes
- * @author     XpertsClub <admin@xperts.club>
+ * @package    WooSmsALlert
+ * @subpackage WooSmsALlert/includes
+ * @author     SMSALERT.MOBI <contact@smsalert.mobi>
  */
 class WooSmsAlert_i18n
 {
@@ -37,7 +37,7 @@ class WooSmsAlert_i18n
     {
 
         load_plugin_textdomain(
-            'xc-woo-twilio',
+            'woo_smsalert',
             false,
             dirname(dirname(plugin_basename(__FILE__))).'/languages/'
         );

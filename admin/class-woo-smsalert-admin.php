@@ -3,11 +3,11 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://xperts.club/
+ * @link       https://smsalert.mobi/
  * @since      1.0.0
  *
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/admin
+ * @package    WooSmsAlert
+ * @subpackage WooSmsAlert/admin
  */
 
 /**
@@ -16,9 +16,9 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/admin
- * @author     XpertsClub <admin@xperts.club>
+ * @package    WooSmsAlert
+ * @subpackage WooSmsAlert/admin
+ * @author     SMSAlert <contact@smsalert.mobi>
  */
 class WooSmsAlert_Admin
 {
@@ -115,7 +115,7 @@ class WooSmsAlert_Admin
         foreach ($sections as $id => $label) {
             echo '<li><a href="'.
                  admin_url(
-                     'admin.php?page=wc-settings&tab=woo_smsalert&section=' . sanitize_title($id)
+                     'admin.php?page=wc-settings&tab=woo_smsalert&section='.sanitize_title($id)
                  ).'" class="'.($current_section == $id ? 'current' : '').
                  '">'.$label.'</a> '.
                  (end($array_keys) == $id ? '' : '|').
@@ -150,7 +150,7 @@ class WooSmsAlert_Admin
      */
     public static function add_settings_tab($settings_tabs)
     {
-        $settings_tabs['woo-smsalert'] = __('SMS Notifications', 'woo-smsalert');
+        $settings_tabs['woo_smsalert'] = __('SMS Notifications', 'woo-smsalert');
 
         return $settings_tabs;
     }
@@ -190,35 +190,35 @@ class WooSmsAlert_Admin
     {
         if ($current_section == '') {
             $settings = [
-                'section_title'       => [
+                'section_title'          => [
                     'name' => __('SmsAlert Settings', 'woo-smsalert'),
                     'type' => 'title',
                     'desc' => '',
-                    'id'   => 'woo-smsalert_section_title',
+                    'id'   => 'woo_smsalert_section_title',
                 ],
-                '_woo-smsalert_username'   => [
+                '_woo-smsalert_username' => [
                     'name' => __('SmsAlert Account Username', 'woo-smsalert'),
                     'type' => 'text',
-                    'desc' => __('The account Sid for your account in Twilio', 'woo-smsalert'),
-                    'id'   => 'woo-smsalert_sid',
+                    'desc' => __('The account username for your account in SMSAlert', 'woo-smsalert'),
+                    'id'   => 'woo_smsalert_username',
                 ],
-                '_woo-smsalert_token' => [
+                '_woo-smsalert_token'    => [
                     'name' => __('Authentication Token', 'woo-smsalert'),
                     'type' => 'text',
                     'desc' => __('The authentication Token for your account in SmsAlert', 'woo-smsalert'),
-                    'id'   => 'woo-smsalert_token',
+                    'id'   => 'woo_smsalert_token',
                 ],
 
                 '_woo-smsalert_admin_number' => [
                     'name' => __('Admin Mobile Number', 'woo-smsalert'),
                     'type' => 'text',
                     'desc' => __('Admin mobile number to get order notifications', 'woo-smsalert'),
-                    'id'   => 'woo-smsalert_admin_number',
+                    'id'   => 'woo_smsalert_admin_number',
                 ],
 
                 'section_end' => [
                     'type' => 'sectionend',
-                    'id'   => 'woo-smsalert_section_end',
+                    'id'   => 'woo_smsalert_section_end',
                 ],
             ];
         } elseif ($current_section == "messages") {
@@ -227,13 +227,13 @@ class WooSmsAlert_Admin
                     'name' => __('New Order Notification', 'woo-smsalert'),
                     'type' => 'title',
                     'desc' => __('This notification will send to admin when a new order was placed', 'woo-smsalert'),
-                    'id'   => 'woo-smsalert_section_messages_start',
+                    'id'   => 'woo_smsalert_section_messages_start',
                 ],
                 [
                     'name' => __('New Order Notification', 'woo-smsalert'),
                     'type' => 'checkbox',
                     'desc' => __('Enable New Order Notification', 'woo-smsalert'),
-                    'id'   => 'woo-smsalert_neworder',
+                    'id'   => 'woo_smsalert_neworder',
                 ],
                 [
                     'name'    => __('Message', 'woo-smsalert'),
@@ -244,11 +244,11 @@ class WooSmsAlert_Admin
                     ),
                     'css'     => "height:100px",
                     'default' => "A new order was placed by {billing_first_name}  {billing_last_name}, Order Id : {order_number} Order Amount : {order_total}",
-                    'id'      => 'woo-smsalert_neworder_message',
+                    'id'      => 'woo_smsalert_neworder_message',
                 ],
                 [
                     'type' => 'sectionend',
-                    'id'   => 'woo-smsalert_section_messages_end',
+                    'id'   => 'woo_smsalert_section_messages_end',
                 ],
             ];
 
@@ -268,7 +268,7 @@ class WooSmsAlert_Admin
                             __('This notification will send when a order status is changed to', 'woo-smsalert'),
                             $val
                         ),
-                        'id'   => 'woo-smsalert_section_messages_start',
+                        'id'   => 'woo_smsalert_section_messages_start',
                     ],
                     [
                         'name' => __('Send notification to admin', 'woo-smsalert'),
@@ -278,7 +278,7 @@ class WooSmsAlert_Admin
                             __('Send notification to admin when ouder is', 'woo-smsalert'),
                             $val
                         ),
-                        'id'   => 'woo-smsalert_admin_enable_order_status_'.$key,
+                        'id'   => 'woo_smsalert_admin_enable_order_status_'.$key,
                     ],
                     [
                         'name'    => __('Admin message', 'woo-smsalert'),
@@ -289,7 +289,7 @@ class WooSmsAlert_Admin
                         ),
                         'css'     => "height:100px",
                         'default' => "{site_title}: status of order #{order_number} has been changed to {order_status}.",
-                        'id'      => 'woo-smsalert_admin_message_'.$key,
+                        'id'      => 'woo_smsalert_admin_message_'.$key,
                     ],
                     [
                         'name' => __('Send notification to customer', 'woo-smsalert'),
@@ -299,7 +299,7 @@ class WooSmsAlert_Admin
                             __('Send notification to customer when ouder is', 'woo-smsalert'),
                             $val
                         ),
-                        'id'   => 'woo-smsalert_customer_enable_order_status_'.$key,
+                        'id'   => 'woo_smsalert_customer_enable_order_status_'.$key,
                     ],
                     [
                         'name'    => __('Customer message', 'woo-smsalert'),
@@ -310,11 +310,11 @@ class WooSmsAlert_Admin
                         ),
                         'css'     => "height:100px",
                         'default' => "Hello {billing_first_name}, status of your order {order_number} with {site_title} has been changed to {order_status}.",
-                        'id'      => 'woo-smsalert_customer_message_'.$key,
+                        'id'      => 'woo_smsalert_customer_message_'.$key,
                     ],
                     [
                         'type' => 'sectionend',
-                        'id'   => 'woo-smsalert_section_messages_end',
+                        'id'   => 'woo_smsalert_section_messages_end',
                     ],
                 ];
 
@@ -333,7 +333,7 @@ class WooSmsAlert_Admin
                     'name' => __('Send notification to customer', 'woo-smsalert'),
                     'type' => 'checkbox',
                     'desc' => __('Send notification to customer when a new note is added to order', 'woo-smsalert'),
-                    'id'   => 'woo-smsalert_customer_enable_order_note',
+                    'id'   => 'woo_smsalert_customer_enable_order_note',
                 ],
                 [
                     'name'    => __('Customer message', 'woo-smsalert'),
@@ -344,11 +344,11 @@ class WooSmsAlert_Admin
                     ),
                     'css'     => "height:100px",
                     'default' => "Hello {billing_first_name}, a new note has been added to your order {order_number}: {order_note}",
-                    'id'      => 'woo-smsalert_customer_message_note',
+                    'id'      => 'woo_smsalert_customer_message_note',
                 ],
                 [
                     'type' => 'sectionend',
-                    'id'   => 'woo-smsalert_section_messages_end',
+                    'id'   => 'woo_smsalert_section_messages_end',
                 ],
             ];
 
@@ -368,7 +368,14 @@ class WooSmsAlert_Admin
     public function plugin_action_links($links)
     {
         $action_links = [
-            'settings' => '<a href="'.admin_url('admin.php?page=wc-settings&tab=woo_smsalert').'" aria-label="'.esc_attr__('settings', 'woo-smsalert').'">'.esc_html__('Settings', 'woo-smsalert').'</a>',
+            'settings' =>
+                '<a href="'.
+                admin_url('admin.php?page=wc-settings&tab=woo_smsalert').
+                '" aria-label="'.
+                esc_attr__('settings', 'woo-smsalert')
+                .'">'.
+                esc_html__('Settings', 'woo-smsalert').
+                '</a>',
         ];
 
         return array_merge($action_links, $links);
@@ -416,7 +423,8 @@ class WooSmsAlert_Admin
         $order_id     = $_POST['order_id'];
         $order        = wc_get_order($order_id);
         $order_status = $order->get_status();
-        $message      = get_option("woo-smsalert_customer_message_{$order_status}");
+
+        $message = get_option("woo_smsalert_customer_message_{$order_status}");
 
         wp_send_json_success(['message' => $message]);
     }
@@ -429,7 +437,7 @@ class WooSmsAlert_Admin
         $order_id = $_POST['order_id'];
         $message  = $_POST['message'];
         ob_start();
-        do_action('woo-smsalert_custom_message', $order_id, $message);
+        do_action('woo_smsalert_custom_message', $order_id, $message);
         $message = ob_get_clean();
 
         wp_send_json_success(['message' => $message]);

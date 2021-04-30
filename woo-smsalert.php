@@ -3,20 +3,20 @@
  * The plugin bootstrap file
  *
  *
- * @link              https://xperts.club/
+ * @link              https://smsalert.mobi/
  * @since             1.0.0
- * @package           Xc_Woo_Twilio
+ * @package           WooSmsAlert
  *
  * @wordpress-plugin
- * Plugin Name:       Woocommerce SMS/WhatsApp Notifications
- * Plugin URI:        https://wp.xperts.club/woonotifications/
- * Description:       By using Woocommerce SMS/WhatsApp Notifications you can start sending custom SMS/WhatsApp messages to your customers right away, informing them of any change in the status of the order they placed. Also, you can receive an SMS/WhatsApp message when the shop gets a new order.
- * Version:           1.0.2
- * Author:            XpertsClub
- * Author URI:        https://xperts.club/
+ * Plugin Name:       Woocommerce SMS Notifications
+ * Plugin URI:        https://smsalert.mobi/
+ * Description:       SMSAlert is a IOT based SMS messaging application, which allows you to send unlimited messages with at a very low cost by using your SIM card.
+ * Version:           1.0.0
+ * Author:            (SMSAlert) Dinu Alexandru
+ * Author URI:        https://smsalert.mobi/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       xc-woo-twilio
+ * Text Domain:       woo-smsalert
  * Domain Path:       /languages
  * Requires at least: 4.0
  * Tested up to:      5.6
@@ -30,11 +30,9 @@ if (!defined('WPINC')) {
 }
 
 /**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
+ *
  */
-define('WOO_SMSALERT_VERSION', '1.0.2');
+define('WOO_SMSALERT_VERSION', '1.0.0');
 
 
 // Define XCWPP_PLUGIN_FILE.
@@ -48,7 +46,7 @@ if (!defined('WOO_SMSALERT_BASENAME')) {
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-xc-woo-twilio-activator.php
+ * This action is documented in includes/class-woo-smsalert-activator.php
  */
 function activate_woo_smsalert()
 {
@@ -58,7 +56,7 @@ function activate_woo_smsalert()
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-xc-woo-twilio-deactivator.php
+ * This action is documented in includes/class-woo-smsalert-deactivator.php
  */
 function deactivate_woo_smsalert()
 {
@@ -96,6 +94,7 @@ function run_woo_smsalert()
 * check Woocommerce Activation
 */
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
+
 if (is_plugin_active('woocommerce/woocommerce.php')) {
     // run the plugin
     run_woo_smsalert();
@@ -112,7 +111,7 @@ function woo_smsalert_installed_notice()
     ?>
     <div class="error">
         <p><?php _e(
-                'Woocommerce SMS Notifications requires the WooCommerce plugin. Please install or activate Woocommerce before!',
+                'Woocommerce SMSAlert Notifications requires the WooCommerce plugin. Please install or activate Woocommerce before!',
                 'woo-smsalert'
             ); ?></p>
     </div>

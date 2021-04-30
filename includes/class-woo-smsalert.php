@@ -6,11 +6,11 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://xperts.club/
+ * @link       https://smsalert.mobi/
  * @since      1.0.0
  *
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/includes
+ * @package    WooSmsALlert
+ * @subpackage WooSmsALlert/includes
  */
 
 /**
@@ -75,7 +75,7 @@ class WooSmsAlert
         } else {
             $this->version = '1.0.0';
         }
-        $this->plugin_name = 'smsalert';
+        $this->plugin_name = 'woo-smsalert';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -90,10 +90,10 @@ class WooSmsAlert
      *
      * Include the following files that make up the plugin:
      *
-     * - Xc_Woo_Twilio_Loader. Orchestrates the hooks of the plugin.
-     * - Xc_Woo_Twilio_i18n. Defines internationalization functionality.
-     * - Xc_Woo_Twilio_Admin. Defines all hooks for the admin area.
-     * - Xc_Woo_Twilio_Public. Defines all hooks for the public side of the site.
+     * - WooSmsAlert_Loader. Orchestrates the hooks of the plugin.
+     * - WooSmsAlert_i18n. Defines internationalization functionality.
+     * - WooSmsAlert_Admin. Defines all hooks for the admin area.
+     * - WooSmsAlert_Public. Defines all hooks for the public side of the site.
      *
      * Create an instance of the loader which will be used to register the hooks
      * with WordPress.
@@ -117,6 +117,11 @@ class WooSmsAlert
         require_once plugin_dir_path(dirname(__FILE__)).'includes/class-woo-smsalert-i18n.php';
 
         /**
+         * Include autoload
+         */
+        require_once plugin_dir_path(dirname(__FILE__)).'includes/vendor/autoload.php';
+
+        /**
          * The class responsible for send all notifications
          * side of the site.
          */
@@ -133,7 +138,6 @@ class WooSmsAlert
          */
         require_once plugin_dir_path(dirname(__FILE__)).'public/class-woo-smsalert-public.php';
 
-
         $this->loader = new WOoSmsAlert_Loader();
 
     }
@@ -141,7 +145,7 @@ class WooSmsAlert
     /**
      * Define the locale for this plugin for internationalization.
      *
-     * Uses the Xc_Woo_Twilio_i18n class in order to set the domain and to register the hook
+     * Uses the WooSmsAlert_i18n class in order to set the domain and to register the hook
      * with WordPress.
      *
      * @since    1.0.0

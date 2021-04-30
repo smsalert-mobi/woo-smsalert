@@ -3,11 +3,11 @@
 /**
  * Fired during plugin activation
  *
- * @link       https://xperts.club/
+ * @link       https://smsalert.mobi/
  * @since      1.0.0
  *
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/includes
+ * @package    WooSmsALlert
+ * @subpackage WooSmsALlert/includes
  */
 
 /**

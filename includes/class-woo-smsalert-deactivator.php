@@ -3,11 +3,14 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       https://xperts.club/
+ * A class definition that includes attributes and functions used across both the
+ * public-facing side of the site and the admin area.
+ *
+ * @link       https://smsalert.mobi/
  * @since      1.0.0
  *
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/includes
+ * @package    WooSmsALlert
+ * @subpackage WooSmsALlert/includes
  */
 
 /**
@@ -16,9 +19,9 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/includes
- * @author     XpertsClub <admin@xperts.club>
+ * @package    WooSmsALlert
+ * @subpackage WooSmsALlert/includes
+ * @author     SMSALERT.MOBI <contact@smsalert.mobi>
  */
 class WooSmsAlert_Deactivator
 {

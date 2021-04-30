@@ -5,11 +5,11 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       https://xperts.club/
+ * @link       https://smsalert.mobi/
  * @since      1.0.0
  *
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/admin/partials
+ * @package    WooSmsAlert
+ * @subpackage WooSmsAlert/admin
  */
 ?>
 
