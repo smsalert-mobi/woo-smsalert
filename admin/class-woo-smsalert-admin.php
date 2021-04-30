@@ -65,7 +65,7 @@ class WooSmsAlert_Admin
     {
         wp_enqueue_style(
             $this->plugin_name,
-            plugin_dir_url(__FILE__).'css/woo-woo-woo-smsalert-admin.css',
+            plugin_dir_url(__FILE__).'css/woo-smsalert-admin.css',
             [],
             $this->version,
             'all'
@@ -81,7 +81,7 @@ class WooSmsAlert_Admin
     {
         wp_enqueue_script(
             $this->plugin_name,
-            plugin_dir_url(__FILE__).'js/woo-woo-smsalert-admin.js',
+            plugin_dir_url(__FILE__).'js/woo-smsalert-admin.js',
             ['jquery'],
             $this->version,
             false
@@ -89,7 +89,7 @@ class WooSmsAlert_Admin
 
         wp_localize_script(
             $this->plugin_name,
-            "xc_woo_twilio",
+            "woo_smsalert",
             ['ajax_url' => admin_url('admin-ajax.php')]
         );
 
@@ -113,10 +113,12 @@ class WooSmsAlert_Admin
         $array_keys = array_keys($sections);
 
         foreach ($sections as $id => $label) {
-            echo '<li><a href="' .
-                 admin_url('admin.php?page=wc-settings&tab=woo-smsalert&section=' . sanitize_title($id)) . '" class="' . ($current_section == $id ? 'current' : '') .
-                 '">' . $label . '</a> ' .
-                 ( end($array_keys) == $id ? '' : '|') .
+            echo '<li><a href="'.
+                 admin_url(
+                     'admin.php?page=wc-settings&tab=woo_smsalert&section=' . sanitize_title($id)
+                 ).'" class="'.($current_section == $id ? 'current' : '').
+                 '">'.$label.'</a> '.
+                 (end($array_keys) == $id ? '' : '|').
                  ' </li>';
         }
 
@@ -188,14 +190,14 @@ class WooSmsAlert_Admin
     {
         if ($current_section == '') {
             $settings = [
-                'section_title'        => [
+                'section_title'       => [
                     'name' => __('SmsAlert Settings', 'woo-smsalert'),
                     'type' => 'title',
                     'desc' => '',
                     'id'   => 'woo-smsalert_section_title',
                 ],
-                '_woo-smsalert_sid'   => [
-                    'name' => __('SmsAlert Account Sid', 'woo-smsalert'),
+                '_woo-smsalert_username'   => [
+                    'name' => __('SmsAlert Account Username', 'woo-smsalert'),
                     'type' => 'text',
                     'desc' => __('The account Sid for your account in Twilio', 'woo-smsalert'),
                     'id'   => 'woo-smsalert_sid',
@@ -207,32 +209,11 @@ class WooSmsAlert_Admin
                     'id'   => 'woo-smsalert_token',
                 ],
 
-//                '_woo-smsalert_whatsapp_number' => [
-//                    'name' => __('WhatsApp Sender ID', 'woo-smsalert'),
-//                    'type' => 'text',
-//                    'desc' => __('The WhatsApp Sender ID of your account in Twilio', 'woo-smsalert'),
-//                    'id'   => 'woo-smsalert_whatsapp_number',
-//                ],
-
-                '_woo-smsalert_sms_number' => [
-                    'name' => __('SMS Sender ID', 'woo-smsalert'),
-                    'type' => 'text',
-                    'desc' => __('The SMS Sender ID of your account in Twilio', 'woo-smsalert'),
-                    'id'   => 'woo-smsalert_sms_number',
-                ],
-
                 '_woo-smsalert_admin_number' => [
                     'name' => __('Admin Mobile Number', 'woo-smsalert'),
                     'type' => 'text',
                     'desc' => __('Admin mobile number to get order notifications', 'woo-smsalert'),
                     'id'   => 'woo-smsalert_admin_number',
-                ],
-
-                '_woo-smsalert_default_type' => [
-                    'name'    => __('Default notification type', 'woo-smsalert'),
-                    'type'    => 'radio',
-                    'options' => ["sms" => "SMS", "whatsapp" => "WhatsApp"],
-                    'id'      => 'woo-smsalert_default_type',
                 ],
 
                 'section_end' => [
@@ -292,7 +273,11 @@ class WooSmsAlert_Admin
                     [
                         'name' => __('Send notification to admin', 'woo-smsalert'),
                         'type' => 'checkbox',
-                        'desc' => sprintf("%s %s", __('Send notification to admin when ouder is', 'woo-smsalert'), $val),
+                        'desc' => sprintf(
+                            "%s %s",
+                            __('Send notification to admin when ouder is', 'woo-smsalert'),
+                            $val
+                        ),
                         'id'   => 'woo-smsalert_admin_enable_order_status_'.$key,
                     ],
                     [
@@ -309,7 +294,11 @@ class WooSmsAlert_Admin
                     [
                         'name' => __('Send notification to customer', 'woo-smsalert'),
                         'type' => 'checkbox',
-                        'desc' => sprintf("%s %s", __('Send notification to customer when ouder is', 'woo-smsalert'), $val),
+                        'desc' => sprintf(
+                            "%s %s",
+                            __('Send notification to customer when ouder is', 'woo-smsalert'),
+                            $val
+                        ),
                         'id'   => 'woo-smsalert_customer_enable_order_status_'.$key,
                     ],
                     [
@@ -371,23 +360,28 @@ class WooSmsAlert_Admin
         return apply_filters('wc_settings_tab_woo-smsalert_settings', $settings);
     }
 
+    /**
+     * @param $links
+     *
+     * @return array
+     */
     public function plugin_action_links($links)
     {
         $action_links = [
-            'settings' => '<a href="'.admin_url(
-                    'admin.php?page=wc-settings&tab=woo-smsalert'
-                ).'" aria-label="'.esc_attr__('settings', 'woo-smsalert').'">'.esc_html__('Settings', 'woo-smsalert').'</a>',
+            'settings' => '<a href="'.admin_url('admin.php?page=wc-settings&tab=woo_smsalert').'" aria-label="'.esc_attr__('settings', 'woo-smsalert').'">'.esc_html__('Settings', 'woo-smsalert').'</a>',
         ];
 
         return array_merge($action_links, $links);
     }
 
+    /**
+     *
+     */
     public function add_order_meta_box()
     {
-
         add_meta_box(
-            'woo-smsalert_order_meta_box',
-            esc_html__('SMS/WhatsApp Messages', 'woo-smsalert'),
+            'woo_smsalert_order_meta_box',
+            esc_html__('SMS', 'woo-smsalert'),
             [$this, 'display_order_meta_box'],
             'shop_order',
             'side',
@@ -395,23 +389,29 @@ class WooSmsAlert_Admin
         );
     }
 
+    /**
+     * @param $post
+     */
     public function display_order_meta_box($post)
     {
         ?>
         <p><?php echo esc_attr__('Message', 'woo-smsalert'); ?></p>
-        <p><textarea type="text" name="woo-smsalert_order_message" id="woo-smsalert_order_message" class="input-text"
+        <p><textarea type="text" name="woo_smsalert_order_message" id="woo_smsalert_order_message" class="input-text"
                      style="width: 100%;" rows="4"></textarea></p>
         <div class="woo-smsalert_order_message_buttons">
-            <a data-order-id="<?php echo $post->ID; ?>" class="button woo-smsalert_order_message_buttons_load_message"
-               href="jvascript:void(0)"><?php echo esc_attr__('Load Order Status Message', 'woo-smsalert'); ?></a>
+            <a data-order-id="<?php echo $post->ID; ?>" class="button woo_smsalert_order_message_buttons_load_message"
+               href="javascript:void(0)"><?php echo esc_attr__('Load Order Status Message', 'woo-smsalert'); ?></a>
             <a data-order-id="<?php echo $post->ID; ?>"
-               class="button woo-smsalert_order_message_buttons_send_message button-primary"
-               href="jvascript:void(0)"><?php echo esc_attr__('Send', 'woo-smsalert'); ?></a>
+               class="button woo_smsalert_order_message_buttons_send_message button-primary"
+               href="javascript:void(0)"><?php echo esc_attr__('Send', 'woo-smsalert'); ?></a>
         </div>
         <?php
     }
 
-    public function smsalert_order_message_load_message()
+    /**
+     *
+     */
+    public function woo_smsalert_order_message_load_message()
     {
         $order_id     = $_POST['order_id'];
         $order        = wc_get_order($order_id);
@@ -421,7 +421,10 @@ class WooSmsAlert_Admin
         wp_send_json_success(['message' => $message]);
     }
 
-    public function smsalert_order_message_send_message()
+    /**
+     *
+     */
+    public function woo_smsalert_order_message_send_message()
     {
         $order_id = $_POST['order_id'];
         $message  = $_POST['message'];

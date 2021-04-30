@@ -16,21 +16,23 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Xc_Woo_Twilio
- * @subpackage Xc_Woo_Twilio/includes
- * @author     XpertsClub <admin@xperts.club>
+ * @package    WooSmsALlert
+ * @subpackage WooSmsALlert/includes
+ * @author     SMSALERT.MOBI <contact@smsalert.mobi>
  */
-class WooSmsAlert_Activator {
+class WooSmsAlert_Activator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function activate() {
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function activate()
+    {
 
-	}
+    }
 
 }

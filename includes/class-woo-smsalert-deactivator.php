@@ -20,17 +20,19 @@
  * @subpackage Xc_Woo_Twilio/includes
  * @author     XpertsClub <admin@xperts.club>
  */
-class WooSmsAlert_Deactivator {
+class WooSmsAlert_Deactivator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function deactivate()
+    {
 
-	}
+    }
 
 }
