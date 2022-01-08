@@ -1,0 +1,215 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Woocommerce SMS Notifications\n"
+"POT-Creation-Date: 2021-04-30 22:21+0300\n"
+"PO-Revision-Date: 2021-04-30 22:21+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: woo-smsalert.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/class-woo-smsalert-admin.php:135
+#: admin/class-woo-smsalert-admin.php:194
+msgid "SmsAlert Settings"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:136
+msgid "Messages Configuration"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:153
+msgid "SMS Notifications"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:200
+msgid "SmsAlert Account Username"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:202
+msgid "The account username for your account in SMSAlert"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:206
+msgid "Authentication Token"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:208
+msgid "The authentication Token for your account in SmsAlert"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:213
+msgid "Admin Mobile Number"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:215
+msgid "Admin mobile number to get order notifications"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:227
+#: admin/class-woo-smsalert-admin.php:233
+msgid "New Order Notification"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:229
+msgid "This notification will send to admin when a new order was placed"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:235
+msgid "Enable New Order Notification"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:239
+#: admin/class-woo-smsalert-admin.php:405
+msgid "Message"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:242
+msgid ""
+"Available placeholders: {billing_first_name} , {billing_last_name},  "
+"{order_number} , {order_total}, {site_title}"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:264
+msgid "Send Notification when Order is"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:268
+msgid "This notification will send when a order status is changed to"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:274
+msgid "Send notification to admin"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:278
+msgid "Send notification to admin when order is"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:284
+msgid "Admin message"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:287
+#: admin/class-woo-smsalert-admin.php:308
+msgid ""
+"Available placeholders: {order_status}, {billing_first_name} , "
+"{billing_last_name},  {order_number} , {order_total}, {site_title}"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:295
+#: admin/class-woo-smsalert-admin.php:333
+msgid "Send notification to customer"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:299
+msgid "Send notification to customer when order is"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:305
+#: admin/class-woo-smsalert-admin.php:339
+msgid "Customer message"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:327
+msgid "Send Notification when a new note is added to order"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:329
+msgid "This notification will send when a new note is added to order"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:335
+msgid "Send notification to customer when a new note is added to order"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:342
+msgid ""
+"Available placeholders: {order_note}, {billing_first_name} , "
+"{billing_last_name},  {order_number} , {order_total}, {site_title}"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:375
+msgid "settings"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:377
+msgid "Settings"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:391
+msgid "SMS"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:410
+msgid "Load Order Status Message"
+msgstr ""
+
+#: admin/class-woo-smsalert-admin.php:413
+msgid "Send"
+msgstr ""
+
+#: includes/class-woo-smsalert-notifications.php:117
+msgid "Empty phone number or Empty message"
+msgstr ""
+
+#: includes/class-woo-smsalert-notifications.php:312
+msgid "Message : "
+msgstr ""
+
+#: includes/class-woo-smsalert-notifications.php:316
+msgid "Status : Success "
+msgstr ""
+
+#: includes/class-woo-smsalert-notifications.php:318
+msgid "Status : Failed "
+msgstr ""
+
+#: includes/class-woo-smsalert-notifications.php:319
+msgid "Error : "
+msgstr ""
+
+#: includes/class-woo-smsalert-notifications.php:344
+msgid "Message Sent : "
+msgstr ""
+
+#: includes/class-woo-smsalert-notifications.php:347
+msgid "Message Failed, Error : "
+msgstr ""
+
+#: woo-smsalert.php:114
+msgid ""
+"Woocommerce SMSAlert Notifications requires the WooCommerce plugin. Please "
+"install or activate Woocommerce before!"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Woocommerce SMS Notifications"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://smsalert.mobi/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"SMSAlert is a IOT based SMS messaging application, which allows you to send "
+"unlimited messages with at a very low cost by using your SIM card."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "(SMSAlert) Dinu Alexandru"
+msgstr ""

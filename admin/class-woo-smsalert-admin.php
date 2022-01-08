@@ -275,7 +275,7 @@ class WooSmsAlert_Admin
                         'type' => 'checkbox',
                         'desc' => sprintf(
                             "%s %s",
-                            __('Send notification to admin when ouder is', 'woo-smsalert'),
+                            __('Send notification to admin when order is', 'woo-smsalert'),
                             $val
                         ),
                         'id'   => 'woo_smsalert_admin_enable_order_status_'.$key,
@@ -296,7 +296,7 @@ class WooSmsAlert_Admin
                         'type' => 'checkbox',
                         'desc' => sprintf(
                             "%s %s",
-                            __('Send notification to customer when ouder is', 'woo-smsalert'),
+                            __('Send notification to customer when order is', 'woo-smsalert'),
                             $val
                         ),
                         'id'   => 'woo_smsalert_customer_enable_order_status_'.$key,

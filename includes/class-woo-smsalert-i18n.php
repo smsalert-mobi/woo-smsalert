@@ -37,7 +37,7 @@ class WooSmsAlert_i18n
     {
 
         load_plugin_textdomain(
-            'woo_smsalert',
+            'woo-smsalert',
             false,
             dirname(dirname(plugin_basename(__FILE__))).'/languages/'
         );

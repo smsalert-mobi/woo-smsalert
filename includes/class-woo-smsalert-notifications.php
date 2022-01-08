@@ -115,7 +115,7 @@ class WooSmsAlert_Notifications
         if (empty($message) || empty($number)) {
             return [
                 'error'   => esc_attr__('Empty phone number or Empty message', 'woo_smsalert'),
-                'status'  => 'faild',
+                'status'  => 'failed',
                 'message' => $message,
             ];
         }
@@ -165,7 +165,7 @@ class WooSmsAlert_Notifications
 
             return ['message' => $message, 'status' => 'success'];
         } catch (Exception $e) {
-            return ['error' => $e->getMessage(), 'status' => 'faild', 'message' => $message];
+            return ['error' => $e->getMessage(), 'status' => 'failed', 'message' => $message];
         }
 
     }
@@ -315,7 +315,7 @@ class WooSmsAlert_Notifications
         if ($status['status'] == 'success') {
             $note .= '<br>'.esc_attr__('Status : Success ', 'woo-smsalert');
         } else {
-            $note .= '<br>'.esc_attr__('Status : Faild ', 'woo-smsalert');
+            $note .= '<br>'.esc_attr__('Status : Failed ', 'woo-smsalert');
             $note .= '<br>'.esc_attr__('Error : ', 'woo-smsalert');
             $note .= $status['error'];
         }
