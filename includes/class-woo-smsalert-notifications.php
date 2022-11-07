@@ -171,12 +171,9 @@ class WooSmsAlert_Notifications
     }
 
     /**
-     * @ Returns all placeholders with values
+     * @param $order
      *
-     * @return array     $placeholders
-     * @var    mixed $order
-     * @since  1.0.0
-     * @access public
+     * @return mixed|null
      */
     public function placeholders($order)
     {
@@ -188,21 +185,26 @@ class WooSmsAlert_Notifications
             $placeholders['{billing_last_name}']  = $order->get_billing_last_name();
             $placeholders['{order_total}']        = html_entity_decode(wc_price($order->get_total()));
             $placeholders['{order_date}']         = $order->get_date_created();
+
+            $trackingItems = $order->get_meta( '_wc_shipment_tracking_items', true );
+
+            if ( count( $trackingItems ) > 0 ) {
+                $trackingProvider = $trackingItems[0]['tracking_provider'];
+                $trackingNumber   = $trackingItems[0]['tracking_number'];
+
+                $placeholders['{order_awb_provider}'] = $trackingProvider;
+                $placeholders['{order_awb_tracking}'] = $trackingNumber;
+            }
         }
 
-        $placeholders = apply_filters('woo_smsalert_placeholders', $placeholders, $order);
-
-        return $placeholders;
+        return apply_filters('woo_smsalert_placeholders', $placeholders, $order);
     }
 
 
     /**
-     * @Returns customer mobile number.
+     * @param $order
      *
-     * @return   string   $mobile
-     * @var      mixed $order
-     * @since    1.0.0
-     * @access   public
+     * @return string|void
      */
     public function get_customer_mobile($order)
     {

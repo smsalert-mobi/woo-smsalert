@@ -239,7 +239,7 @@ class WooSmsAlert_Admin
                     'name'    => __('Message', 'woo-smsalert'),
                     'type'    => 'textarea',
                     'desc'    => __(
-                        'Available placeholders: {billing_first_name} , {billing_last_name},  {order_number} , {order_total}, {site_title}',
+                        'Available placeholders: {billing_first_name} , {billing_last_name},  {order_number} , {order_total}, {order_awb_tracking}, {order_awb_provider}, {site_title}',
                         'woo-smsalert'
                     ),
                     'css'     => "height:100px",
@@ -284,7 +284,7 @@ class WooSmsAlert_Admin
                         'name'    => __('Admin message', 'woo-smsalert'),
                         'type'    => 'textarea',
                         'desc'    => __(
-                            'Available placeholders: {order_status}, {billing_first_name} , {billing_last_name},  {order_number} , {order_total}, {site_title}',
+                            'Available placeholders: {order_status}, {billing_first_name} , {billing_last_name},  {order_number} , {order_total}, {order_awb_tracking}, {order_awb_provider}, {site_title}',
                             'woo-smsalert'
                         ),
                         'css'     => "height:100px",
@@ -305,7 +305,7 @@ class WooSmsAlert_Admin
                         'name'    => __('Customer message', 'woo-smsalert'),
                         'type'    => 'textarea',
                         'desc'    => __(
-                            'Available placeholders: {order_status}, {billing_first_name} , {billing_last_name},  {order_number} , {order_total}, {site_title}',
+                            'Available placeholders: {order_status}, {billing_first_name} , {billing_last_name},  {order_number} , {order_total}, {order_awb_tracking}, {order_awb_provider}, {site_title}',
                             'woo-smsalert'
                         ),
                         'css'     => "height:100px",
