@@ -188,7 +188,7 @@ class WooSmsAlert_Notifications
 
             $trackingItems = $order->get_meta( '_wc_shipment_tracking_items', true );
 
-            if ( count( $trackingItems ) > 0 ) {
+            if ( is_array($trackingItems) && count($trackingItems) > 0 ) {
                 $trackingProvider = $trackingItems[0]['tracking_provider'];
                 $trackingNumber   = $trackingItems[0]['tracking_number'];
 
