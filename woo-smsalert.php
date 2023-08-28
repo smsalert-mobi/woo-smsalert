@@ -11,7 +11,7 @@
  * Plugin Name:       Woocommerce SMS Notifications
  * Plugin URI:        https://smsalert.mobi/
  * Description:       SMSAlert is a IOT based SMS messaging application, which allows you to send unlimited messages with at a very low cost by using your SIM card.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            (SMSAlert) Dinu Alexandru
  * Author URI:        https://smsalert.mobi/
  * License:           GPL-2.0+
@@ -32,7 +32,7 @@ if (!defined('WPINC')) {
 /**
  *
  */
-define('WOO_SMSALERT_VERSION', '1.0.1');
+define('WOO_SMSALERT_VERSION', '1.0.2');
 
 
 // Define XCWPP_PLUGIN_FILE.
