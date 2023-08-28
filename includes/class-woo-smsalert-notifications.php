@@ -144,19 +144,18 @@ class WooSmsAlert_Notifications
                     // Base URI is used with relative requests
                     'base_uri' => 'https://smsalert.mobi',
                     // You can set any number of default request options.
-                    'timeout'  => 2.0,
+                    'timeout'  => 3.0,
+                    'auth'    => [$this->username, $this->token]
                 ]
             );
 
             $response = $client->request(
                 'POST',
-                '/api/sms/send',
+                '/api/v2/message/send',
                 [
-                    'form_params' => [
-                        'username' => $this->username,
-                        'apiKey'   => $this->token,
-                        'tel'      => $number,
-                        'message'  => $message,
+                    'json' => [
+                        'phoneNumber' => $number,
+                        'message'     => $message,
                     ],
                 ]
             );
