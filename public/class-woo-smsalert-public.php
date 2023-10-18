@@ -68,7 +68,7 @@ class WooSmsAlert_Public
          * This function is provided for demonstration purposes only.
          *
          * An instance of this class should be passed to the run() function
-         * defined in WooSmsAlert_Loader as all of the hooks are defined
+         * defined in WooSmsAlert_Loader as all the hooks are defined
          * in that particular class.
          *
          * The WooSmsAlert_Loader will then create the relationship
@@ -78,7 +78,7 @@ class WooSmsAlert_Public
 
         wp_enqueue_style(
             $this->plugin_name,
-            plugin_dir_url(__FILE__).'css/woo-smsalert-public.css',
+            plugin_dir_url(__FILE__) . 'css/woo-smsalert-public.css',
             [],
             $this->version,
             'all'
@@ -98,7 +98,7 @@ class WooSmsAlert_Public
          * This function is provided for demonstration purposes only.
          *
          * An instance of this class should be passed to the run() function
-         * defined in WooSmsAlert_Loader as all of the hooks are defined
+         * defined in WooSmsAlert_Loader as all the hooks are defined
          * in that particular class.
          *
          * The WooSmsAlert_Loader will then create the relationship
@@ -108,7 +108,7 @@ class WooSmsAlert_Public
 
         wp_enqueue_script(
             $this->plugin_name,
-            plugin_dir_url(__FILE__).'js/woo-smsalert-public.js',
+            plugin_dir_url(__FILE__) . 'js/woo-smsalert-public.js',
             ['jquery'],
             $this->version,
             false

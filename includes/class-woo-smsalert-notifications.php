@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The SMSAlert messages functionality of the plugin.
  * @link       https://smsalert.mobi/
@@ -8,7 +7,6 @@
  * @package    WooSmsALlert
  */
 
-use GuzzleHttp\Client;
 
 /**
  * The SMSAlert messages functionality of the plugin.
@@ -22,6 +20,7 @@ use GuzzleHttp\Client;
  */
 class WooSmsAlert_Notifications
 {
+    CONST API_URL = 'https://smsalert.mobi/api/v2/message/send';
 
     /**
      * The ID of this plugin.
@@ -128,8 +127,6 @@ class WooSmsAlert_Notifications
     /**
      * @param $message
      * @param $number
-     * @param $type
-     *
      * @return array|void
      */
     public function send($message, $number)
@@ -139,28 +136,42 @@ class WooSmsAlert_Notifications
                 return;
             }
 
-            $client = new Client(
-                [
-                    // Base URI is used with relative requests
-                    'base_uri' => 'https://smsalert.mobi',
-                    // You can set any number of default request options.
-                    'timeout'  => 3.0,
-                    'auth'    => [$this->username, $this->token]
-                ]
-            );
+            // Create a new cURL resource
+            $ch = curl_init(self::API_URL);
 
-            $response = $client->request(
-                'POST',
-                '/api/v2/message/send',
-                [
-                    'json' => [
-                        'phoneNumber' => $number,
-                        'message'     => $message,
-                    ],
-                ]
-            );
+            // Setup request to send json via POST
+            $data = [
+                'phoneNumber' => $number,
+                'message'     => $message
+            ];
 
-            $status = json_decode($response->getBody()->getContents(), true);
+            $payload = json_encode($data);
+            $token   = base64_encode($this->username . ':' .$this->token);
+            $headers = ['Authorization: Basic ' . $token, 'Content-Type:application/json'];
+
+            // Attach encoded JSON string to the POST fields
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+            // Set the content type to application/json
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            // Return response instead of outputting
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            // Execute the POST request
+            curl_exec($ch);
+
+            if (!curl_errno($ch)) {
+                $info = curl_getinfo($ch);
+                if ($info['http_code'] != 200) {
+                    // Close cURL resource
+                    curl_close($ch);
+                    throw new Exception('Failed to send SMS, status code' . $info['http_code']);
+                }
+            }
+
+            // Close cURL resource
+            curl_close($ch);
 
             return ['message' => $message, 'status' => 'success'];
         } catch (Exception $e) {

@@ -115,7 +115,7 @@ class WooSmsAlert_Admin
         foreach ($sections as $id => $label) {
             echo '<li><a href="'.
                  admin_url(
-                     'admin.php?page=wc-settings&tab=woo_smsalert&section='.sanitize_title($id)
+                     'admin.php?page=wc-settings&tab=woo_smsalert&section=' . sanitize_title($id)
                  ).'" class="'.($current_section == $id ? 'current' : '').
                  '">'.$label.'</a> '.
                  (end($array_keys) == $id ? '' : '|').
@@ -278,7 +278,7 @@ class WooSmsAlert_Admin
                             __('Send notification to admin when order is', 'woo-smsalert'),
                             $val
                         ),
-                        'id'   => 'woo_smsalert_admin_enable_order_status_'.$key,
+                        'id'   => 'woo_smsalert_admin_enable_order_status_' . $key,
                     ],
                     [
                         'name'    => __('Admin message', 'woo-smsalert'),
@@ -289,7 +289,7 @@ class WooSmsAlert_Admin
                         ),
                         'css'     => "height:100px",
                         'default' => "{site_title}: status of order #{order_number} has been changed to {order_status}.",
-                        'id'      => 'woo_smsalert_admin_message_'.$key,
+                        'id'      => 'woo_smsalert_admin_message_' . $key,
                     ],
                     [
                         'name' => __('Send notification to customer', 'woo-smsalert'),
@@ -299,7 +299,7 @@ class WooSmsAlert_Admin
                             __('Send notification to customer when order is', 'woo-smsalert'),
                             $val
                         ),
-                        'id'   => 'woo_smsalert_customer_enable_order_status_'.$key,
+                        'id'   => 'woo_smsalert_customer_enable_order_status_' . $key,
                     ],
                     [
                         'name'    => __('Customer message', 'woo-smsalert'),
@@ -310,7 +310,7 @@ class WooSmsAlert_Admin
                         ),
                         'css'     => "height:100px",
                         'default' => "Hello {billing_first_name}, status of your order {order_number} with {site_title} has been changed to {order_status}.",
-                        'id'      => 'woo_smsalert_customer_message_'.$key,
+                        'id'      => 'woo_smsalert_customer_message_' . $key,
                     ],
                     [
                         'type' => 'sectionend',

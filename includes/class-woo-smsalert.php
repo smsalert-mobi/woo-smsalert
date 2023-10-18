@@ -108,35 +108,30 @@ class WooSmsAlert
          * The class responsible for orchestrating the actions and filters of the
          * core plugin.
          */
-        require_once plugin_dir_path(dirname(__FILE__)).'includes/class-woo-smsalert-loader.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-woo-smsalert-loader.php';
 
         /**
          * The class responsible for defining internationalization functionality
          * of the plugin.
          */
-        require_once plugin_dir_path(dirname(__FILE__)).'includes/class-woo-smsalert-i18n.php';
-
-        /**
-         * Include autoload
-         */
-        require_once plugin_dir_path(dirname(__FILE__)).'includes/vendor/autoload.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-woo-smsalert-i18n.php';
 
         /**
          * The class responsible for send all notifications
          * side of the site.
          */
-        require_once plugin_dir_path(dirname(__FILE__)).'includes/class-woo-smsalert-notifications.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-woo-smsalert-notifications.php';
 
         /**
          * The class responsible for defining all actions that occur in the admin area.
          */
-        require_once plugin_dir_path(dirname(__FILE__)).'admin/class-woo-smsalert-admin.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-woo-smsalert-admin.php';
 
         /**
          * The class responsible for defining all actions that occur in the public-facing
          * side of the site.
          */
-        require_once plugin_dir_path(dirname(__FILE__)).'public/class-woo-smsalert-public.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-woo-smsalert-public.php';
 
         $this->loader = new WOoSmsAlert_Loader();
 
@@ -153,15 +148,12 @@ class WooSmsAlert
      */
     private function set_locale()
     {
-
         $plugin_i18n = new WooSmsAlert_i18n();
-
         $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
-
     }
 
     /**
-     * Register all of the hooks related to the admin area functionality
+     * Register all the hooks related to the admin area functionality
      * of the plugin.
      *
      * @since    1.0.0
@@ -208,16 +200,14 @@ class WooSmsAlert
      */
     private function define_public_hooks()
     {
-
         $plugin_public = new WooSmsAlert_Public($this->get_plugin_name(), $this->get_version());
 
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-
     }
 
     /**
-     * Register all of the hooks related to the notifications functionality
+     * Register all the hooks related to the notifications functionality
      * of the plugin.
      *
      * @since    1.0.0
@@ -255,12 +245,11 @@ class WooSmsAlert
         );
 
         $this->loader->add_action('woocommerce_new_customer_note', $notifications, 'new_customer_note', 10);
-
         $this->loader->add_action('woo_smsalert_custom_message', $notifications, 'custom_order_message', 10, 2);
     }
 
     /**
-     * Run the loader to execute all of the hooks with WordPress.
+     * Run the loader to execute all the hooks with WordPress.
      *
      * @since    1.0.0
      */
