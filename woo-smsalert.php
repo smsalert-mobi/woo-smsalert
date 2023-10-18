@@ -11,7 +11,7 @@
  * Plugin Name:       Woocommerce SMS Notifications
  * Plugin URI:        https://smsalert.mobi/
  * Description:       SMSAlert is a IOT based SMS messaging application, which allows you to send unlimited messages with at a very low cost by using your SIM card.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            (SMSAlert) Dinu Alexandru
  * Author URI:        https://smsalert.mobi/
  * License:           GPL-2.0+
@@ -21,7 +21,7 @@
  * Requires at least: 4.0
  * Tested up to:      5.6
  * WC requires at least: 3.5.0
- * WC tested up to: 4.9.0
+ * WC tested up to: 8.2.0
  */
 
 // If this file is called directly, abort.
@@ -32,7 +32,7 @@ if (!defined('WPINC')) {
 /**
  *
  */
-define('WOO_SMSALERT_VERSION', '1.0.2');
+define('WOO_SMSALERT_VERSION', '1.0.3');
 
 
 // Define XCWPP_PLUGIN_FILE.
@@ -84,16 +84,14 @@ require plugin_dir_path(__FILE__).'includes/class-woo-smsalert.php';
  */
 function run_woo_smsalert()
 {
-
     $plugin = new WooSmsAlert();
     $plugin->run();
-
 }
 
 /*
 * check Woocommerce Activation
 */
-include_once(ABSPATH.'wp-admin/includes/plugin.php');
+include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
 if (is_plugin_active('woocommerce/woocommerce.php')) {
     // run the plugin
@@ -102,6 +100,15 @@ if (is_plugin_active('woocommerce/woocommerce.php')) {
     // display notices to admin
     add_action('admin_notices', 'woo_smsalert_installed_notice');
 }
+
+add_action(
+    'before_woocommerce_init',
+    function() {
+        if (class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class )) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+        }
+    }
+);
 
 /**
  *
