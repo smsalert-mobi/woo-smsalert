@@ -222,6 +222,8 @@ class WooSmsAlert_Notifications
         $billing_country = $order->get_billing_country();
         $country_code    = $this->get_country_code($billing_country);
 
+        $mobile = str_replace(' ', '', $mobile);
+
         preg_match("/(\d{1,4})[0-9.\- ]+/", $mobile, $phone_prefix);
         if (empty($phone_prefix)) {
             return;
@@ -229,13 +231,11 @@ class WooSmsAlert_Notifications
 
         if (isset($country_code)) {
             if (strpos(strval($phone_prefix[1]), strval($country_code)) === false) {
-                $mobile = $country_code.ltrim($mobile, '0');
+                $mobile = $country_code . ltrim($mobile, '0');
             }
         }
 
-        $mobile = '+'.$mobile;
-
-        return $mobile;
+        return '+' . ltrim($mobile, '+');
     }
 
     /**
